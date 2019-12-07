@@ -28,15 +28,6 @@
       <url>file:///tmp/maven-project-site</url>
     </site>
   </distributionManagement>
-
-         
-         
-         
-         
-         
-         
-         
-         
          
   <build>
     <plugins>
@@ -171,13 +162,13 @@
     </pluginManagement>
   </build>
 
-  --<dependencyManagement>
-    --<dependencies>
-     -- <dependency>
-       -- <groupId>javax.servlet</groupId>
-        --<artifactId>servlet-api</artifactId>
-        --<version>2.5</version>
-     -- </dependency>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+       <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+       <version>2.5</version>
+     </dependency>
 
       <dependency>
         <groupId>javax.servlet.jsp</groupId>
