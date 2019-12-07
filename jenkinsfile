@@ -1,9 +1,13 @@
-pipeline 
-agent any
-stages
-{
-stage('git clone'){
+pipeline {
+    agent any
 
-git 'https://github.com/reyazmansoori04/maven-project'
-}
+
+    stages 
+    {  
+        
+        stage ('git clone') {
+          git 'https://github.com/reyazmansoori04/maven-project'
+         }
+    
+    }
 }
