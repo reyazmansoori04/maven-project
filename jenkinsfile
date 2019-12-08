@@ -21,5 +21,26 @@ pipeline {
          }
     
     }
+    
+      stage ('git build') {
+        steps{
+        withMaven(maven : 'LocalMaven')
+         {
+                    sh 'mvn build'
+                }
+         }
+    
+    }
+    
+    
+      stage ('git test') {
+        steps{
+        withMaven(maven : 'LocalMaven')
+         {
+                    sh 'mvn test'
+                }
+         }
+    
+    }
 }
 }
