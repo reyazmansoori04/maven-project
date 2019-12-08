@@ -1,0 +1,39 @@
+  
+pipeline {
+    agent any
+    stages 
+    {  
+               stage ('build') {
+				   steps{ echo "building"
+                 }
+				 }
+				 
+				 stage ('test') {
+				   steps{ echo "testing"
+                 }
+				 }
+				 
+				 
+				 stage ('Get approval') {
+				   steps{ input "Deploy to qa?"
+                 }
+				 }
+				 
+				 
+				 stage ('deploy to qa') {
+				   steps{echo "deploying"
+                 }
+				 }
+				 
+				  stage ('get approval') {
+				   steps{input "Deploy to Prod?"
+                 }
+				 }
+				 
+				  stage ('deploy to prod') {
+				   steps{echo "deploying"
+                 }
+				 }
+             
+}
+}
