@@ -1,15 +1,16 @@
+  
 pipeline {
     agent any
 
-    stages {
-             
-               stage ('git clone') {
-		         Steps{
-				   git 'https://github.com/reyazmansoori04/maven-project'
-				      }
-                 }
-               
-						
-            }
+
+    stages 
+    {  
         
+        stage ('git clone') {
+        steps{
+          git 'https://github.com/reyazmansoori04/maven-project'
+         }
+    
+    }
+}
 }
