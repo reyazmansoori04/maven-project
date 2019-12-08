@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+
+    stages 
+    {  
+        
+        stage ('git clone') {
+        steps{
+          git 'https://github.com/reyazmansoori04/maven-project'
+         }
+    
+    }
+    
+       stage ('git compile') {
+        steps{
+  withAnt(jdk: 'LocalJDK') {
+   
+                    sh 'ant compile'
+                }
+         }
+    
+    }
+}
+}
