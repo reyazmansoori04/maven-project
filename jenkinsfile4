@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    stages 
+    {  
+               stage ('build') {
+				   steps{ 'mvn install'
+                 }
+				 }
+				 
+				   stage ('package') {
+				   steps{ 'mvn package'
+                 }
+				 }
+				 
+				 stage ('test') {
+				   steps{ 'mvn test'
+                 }
+				 }
+				 
+				
+				 
+				 stage ('Get approval') {
+				   steps{ input "Deploy to qa?"
+                 }
+				 }
+				 
+				 
+				 stage ('deploy to qa') {
+				   steps{echo "deploying"
+                 }
+				 }
+				 
+				  stage ('get approval') {
+				   steps{input "Deploy to Prod?"
+                 }
+				 }
+				 
+				  stage ('deploy to prod') {
+				   steps{echo "deploying"
+                 }
+				 }
+             
+}
+}
