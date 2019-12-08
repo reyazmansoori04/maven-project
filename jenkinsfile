@@ -2,19 +2,18 @@ pipeline {
     agent any
 
     stages {
-               stage ('build') {
+             
+               stage ('git checkout') {
+		         Steps{
+				   git 'https://github.com/reyazmansoori04/maven-project'
+				      }
+                 }
+               
+			     stage ('build') {
 		         Steps{
 				   echo "hi"
 				      }
                 }
-
-               stage ('git checkout') {
-		         Steps{
-				   git '<github url>'
-				      }
-                 }
-               
-			   
 			     stage ('test') {
 				    echo "testing"
                  }
