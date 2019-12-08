@@ -22,11 +22,12 @@ pipeline {
     
     }
     
-      stage ('git build') {
+      stage ('git install') {
         steps{
         withMaven(maven : 'LocalMaven')
          {
-                    sh 'mvn build'
+                    sh 'mvn install'
+                    sh 'echo "Anshul"'
                 }
          }
     
