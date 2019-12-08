@@ -6,11 +6,27 @@ pipeline {
     stages 
     {  
         
-        stage ('git clone') {
-        steps{
-          git 'https://github.com/reyazmansoori04/maven-project'
-         }
-    
-    }
+       stage ('build') {
+		         Steps{
+				   echo "hi"
+				      }
+                }
+			     stage ('test') {
+				    echo "testing"
+                 }
+				 
+				 stage('Get approval'){
+                      input "Deploy to qa?"
+                            }
+				  stage ('deploy to qa') {
+				    echo "deploying"
+                 }
+				  
+				  stage('Get approval'){
+                     input "Deploy to prod?"
+                        }
+						stage('Get approval'){
+                     echo "deploying"
+                        }
 }
 }
