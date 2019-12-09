@@ -16,7 +16,7 @@ pipeline {
         steps{
         withMaven(maven : 'LocalMaven')
          {
-                    sh 'mvn clean package'
+               
                     sh 'echo "Anshul"'
                 }
          }
