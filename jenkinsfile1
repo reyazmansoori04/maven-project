@@ -12,36 +12,15 @@ pipeline {
     
     }
     
-       stage ('git compile') {
-        steps{
-        withMaven(maven : 'LocalMaven')
-         {
-                    sh 'mvn compile'
-                }
-         }
-    
-    }
-    
-      stage ('git install') {
+       stage ('build job') {
         steps{
         withMaven(maven : 'LocalMaven')
          {
                     sh 'mvn install'
-                    sh 'echo "Anshul"'
                 }
          }
     
     }
-    
-    
-      stage ('git test') {
-        steps{
-        withMaven(maven : 'LocalMaven')
-         {
-                    sh 'mvn test'
-                }
-         }
-    
-    }
+   
 }
 }
