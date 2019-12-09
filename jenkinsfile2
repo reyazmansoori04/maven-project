@@ -21,8 +21,23 @@ pipeline {
     
  }
  }
+      stage ('compile job') {
+        steps{
+        withMaven(maven : 'LocalMaven')
+         {
+                    sh 'mvn compile'
+                }
+         }
     
+    } 
     
-    
+     stage('Get approval'){
+                   steps{   input "Deploy to qa?"
+                            }}
+                            
+                            stage('deploy to qa'){
+                   steps{   input "deploying"
+                            }}
+			
     }
     }
