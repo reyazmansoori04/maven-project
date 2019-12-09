@@ -12,15 +12,7 @@ pipeline {
     
     }
     
-       stage ('git compile') {
-        steps{
-        withMaven(maven : 'LocalMaven')
-         {
-                    sh 'mvn compile'
-                }
-         }
     
-    }
     
       stage ('git install') {
         steps{
