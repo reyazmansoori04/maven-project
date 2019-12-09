@@ -30,7 +30,13 @@ pipeline {
          }
     
     } 
-    
+     stage ('deploying in tomcat dev env') {
+        steps{
+    sshagent(['tomcatt']) {
+    sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.45.160:/var/lib/tomcat/webapps/'
+}
+  }
+  }
      stage('Get approval'){
                    steps{   input "Deploy to qa?"
                             }}
