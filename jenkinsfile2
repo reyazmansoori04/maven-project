@@ -39,7 +39,7 @@ pipeline {
                    steps{   input "deploying"
                             }}
 			    
-			     stage('Get approval'){
+			     stage('Get approval in production'){
                    steps{   input "Deploy to production?"
                             }}
                             
