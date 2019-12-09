@@ -12,13 +12,15 @@ pipeline {
     
     }
     
- stage('build job')  
- {steps {
-withMaven(jdk: 'LocalJDK', maven: 'LocalMaven')
- {sh 'mvn install'
- }
- }
-   
-}
+  stage ('git install') {
+        steps{
+        withMaven(maven : 'LocalMaven')
+         {
+                    sh 'mvn install'
+                    sh 'echo "Anshul"'
+                }
+         }
+    
+    }
 }
 }
