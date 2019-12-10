@@ -8,4 +8,11 @@ pipeline {
          }
     
     }
+	
+	stage('build job'){
+	steps{
+	withMaven(jdk: 'LocalJDK', maven: 'LocalMaven'){
+	sh 'mvn install'
+	}}}
+	
     }}
