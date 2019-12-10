@@ -15,18 +15,30 @@ pipeline {
 	sh 'mvn install'
 	}}}
 	
+	
+		stage('compile job'){
+	steps{
+	withMaven(jdk: 'LocalJDK', maven: 'LocalMaven'){
+	sh 'mvn compile'
+	}}}
+	
 		stage('test job'){
 	steps{
 	withMaven(jdk: 'LocalJDK', maven: 'LocalMaven'){
 	sh 'mvn test'
 	}}}
 	
+	stage(deploying to tomcat){
+	steps{
+	sshagent(['tomcatt']) {
+      sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.45.160:/var/lib/tomcat/webapps/'
+}}}
 	stage('Get approval from QA'){
 	steps{
 	input "Deploy to QA?"}}
 	
 	stage("deploying to QA"){
-	steps{input "Deplying to QA Environment"
+	steps{input "Deploying to QA Environment"
 	}}
 	
 	stage('Get approval from Prod env'){
@@ -34,7 +46,7 @@ pipeline {
 	input "Deploy to Prod?"}}
 	
 	stage("deploying to prod"){
-	steps{input "Deplying to prod Environment"
+	steps{input "Deploying to prod Environment"
 	}}
 	
     }}
