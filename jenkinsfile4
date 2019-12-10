@@ -28,7 +28,7 @@ pipeline {
 	sh 'mvn test'
 	}}}
 	
-	stage(deploying to tomcat){
+	stage('deploying to tomcat'){
 	steps{
 	sshagent(['tomcatt']) {
       sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.45.160:/var/lib/tomcat/webapps/'
