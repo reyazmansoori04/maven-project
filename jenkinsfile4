@@ -15,4 +15,26 @@ pipeline {
 	sh 'mvn install'
 	}}}
 	
+		stage('test job'){
+	steps{
+	withMaven(jdk: 'LocalJDK', maven: 'LocalMaven'){
+	sh 'mvn test'
+	}}}
+	
+	stage('Get approval from QA'){
+	steps{
+	input "Deploy to QA?"}}
+	
+	stage("deploying to QA"){
+	steps{input ""Deplying to QA Environment"
+	}}
+	
+	stage('Get approval from Prod env'){
+	steps{
+	input "Deploy to Prod?"}}
+	
+	stage("deploying to prod"){
+	steps{input ""Deplying to prod Environment"
+	}}
+	
     }}
