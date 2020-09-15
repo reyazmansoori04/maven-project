@@ -85,7 +85,9 @@
       </plugin>
     </plugins>
 
-    <pluginManagement>
+    
+           //adding ome more properties
+           <pluginManagement>
       <plugins>
         <plugin>
           <artifactId>maven-checkstyle-plugin</artifactId>
