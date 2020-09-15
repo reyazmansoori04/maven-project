@@ -85,8 +85,6 @@
       </plugin>
     </plugins>
 
-    
-           //adding ome more properties
            <pluginManagement>
       <plugins>
         <plugin>
