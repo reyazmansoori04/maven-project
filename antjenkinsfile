@@ -5,7 +5,7 @@ pipeline {
     stages 
     {  
         
-        stage ('git clone') {
+        stage ('git cloning') {
         steps{
           git 'https://github.com/reyazmansoori04/maven-project'
          }
